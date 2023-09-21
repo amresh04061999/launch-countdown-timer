@@ -1,17 +1,20 @@
+/* Global css */
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
+/* html body */
 html,
 body {
     height: 100%;
     width: 100%;
+    background: linear-gradient(hsla(240, 15%, 14%, 0.734), hsla(268, 18%, 14%, 0.846));
     overflow: hidden;
     font-family: "Red Hat Text", sans-serif;
-    background: linear-gradient(hsla(240, 15%, 14%, 0.734), hsla(268, 18%, 14%, 0.846));
     position: relative;
+    position: absolute;
 }
 
 /* body before */
@@ -21,7 +24,6 @@ body::before {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -30,12 +32,12 @@ body::before {
 
 /* body after */
 body::after {
+    position: absolute;
     content: "";
     background: url("./../../images/pattern-hills.svg");
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: contain;
-    position: absolute;
     height: 100%;
     width: 100%;
     top: 0;
@@ -52,75 +54,83 @@ body::after {
     color: hsl(0, 0%, 100%);
     font-weight: 600;
 }
-
+/* timer box */
 .show-time-box {
-    position: relative;
-    height: 120px;
-    width: 140px;
     margin: 8px;
+    position: relative;
+    width: 140px;
+    height: 120px;
     background-color: hsla(236, 21%, 26%, 0.923);
-    border-radius: 10px;
-    overflow: hidden;
     box-shadow: 0px 10px 0px 0px hsla(235, 18%, 12%, 0.893);
+    overflow: hidden;
+    border-radius: 10px;
 }
-
-.show-time-box .upper-side {
+/* timer box upper side side */
+.upper-side-color {
     position: absolute;
     top: 0;
-    height: 50%;
     width: 100%;
-    background-color: hsl(237.39, 20.72%, 21.76%);
-    opacity: 0.3;
+    height: 50%;
+    background-color:hsl(237.39deg 20.72% 21.76%);
+    opacity: 0.9;
 }
 
-/* .show-time-box::before {
+/* before Create */
+.show-time-box::before {
     content: "";
     position: absolute;
     left: -5px;
     top: 50%;
-    height: 20px;
     width: 20px;
+    height: 20px;
     background-color: hsl(229.09, 18.03%, 11.96%);
     transform: translateY(-50%);
     border-radius: 50%;
     z-index: 1;
 }
-
+/* After Create */
 .show-time-box::after {
     content: "";
     position: absolute;
-    right: -10px;
+    right: -5px;
     top: 50%;
-    height: 20px;
     width: 20px;
+    height: 20px;
     background-color: hsl(229.09, 18.03%, 11.96%);
     transform: translateY(-50%);
     border-radius: 50%;
-} */
-
-.show-time-box .timer-data {
+}
+/* time style  */
+.timer-data {
     font-size: 60px;
-    color: hsl(345, 95%, 68%);
-    font-weight: 700;
+    color: hsla(345, 95%, 68%, 0.959);
     z-index: 3;
+    font-weight: 700;
 }
 
 .show-time-text {
     font-size: 14px;
+    letter-spacing: 5px;
     margin-top: 10px;
     font-weight: 700;
     color: hsl(242.07, 13.49%, 57.84%);
-    letter-spacing: 5px;
 }
-
-.footer {
-    height: 10%;
+.footer{
+    height: 20%;
     z-index: 10;
 }
 
 .main-text-color {
     color: hsl(345, 95%, 68%);
 }
+.social-media ul{
+    list-style-type: none;
+    display: flex;
+}
+.social-media ul li:hover{
+    color: hsl(345, 95%, 68%);
+}
+
 
 /* Add flip animation styles */
 @keyframes flip {
@@ -156,7 +166,7 @@ body::after {
 .timer-flip {
     animation: entry 1s ease-in-out;
 }
-
+/* Media Query */
 @media (max-width: 768px) {
     .show-time-box {
         height: 100px;
@@ -189,42 +199,59 @@ body::after {
 
 @media (max-width: 375px) {
     .show-time-box {
-        height: 60px;
-        width: 65px;
+        height: 55px;
+        width: 55px;
+    }
+    .show-time-box::after {
+        height: 14px;
+        width: 14px;
     }
 
     .show-time-box::before {
-        height: 15px;
-        width: 15px;
+        height: 14px;
+        width: 14px;
     }
 
-    .show-time-box::after {
-        height: 15px;
-        width: 15px;
-    }
-
-    .show-time-box .timer-data {
-        font-size: 23px;
-    }
 
     .show-time-text {
         font-size: 8px;
         letter-spacing: 3px;
     }
+    .show-time-box .timer-data {
+        font-size: 20px;
+    }
+
 }
 
 @media (max-width: 320px) {
     .show-time-box {
-        height: 55px;
-        width: 55px;
+        height: 50px;
+        width: 50px;
     }
 
     .show-time-box .timer-data {
-        font-size: 21px;
+        font-size: 20px;
     }
 
     .show-time-text {
         font-size: 6px;
         letter-spacing: 2px;
     }
+    .text-section {
+        display: none;
+    }
+    .text-heading{
+        font-size: 30px;
+    }
+    .show-time-box::before {
+        width: 12px;
+        height: 12px;
+     
+    }
+    /* After Create */
+    .show-time-box::after {
+        width: 12px;
+        height: 12px;
+    }
 }
+/* End Media Query */
