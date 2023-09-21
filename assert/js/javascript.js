@@ -1,13 +1,13 @@
 
-const targetDate = new Date("2023-12-31T00:00:00").getTime();
+const targetDate = new Date("2023-11-31T00:00:00").getTime();
 // Function to update the countdown 
 function updateCountdown() {
-    const timeLeft = Math.max(targetDate - Date.now(), 0);
-    if (timeLeft <= 0) {
+    const leftTime = Math.max(targetDate - Date.now(), 0);
+    if (leftTime <= 0) {
     } else {
         const units = [86400000, 3600000, 60000, 1000];
         const [days, hours, minutes, seconds] = units.map(unit =>
-            Math.floor((timeLeft % (unit * 60)) / unit)
+            Math.floor((leftTime % (unit * 60)) / unit)
         );
         updateTimer("days", days);
         updateTimer("hours", hours);
